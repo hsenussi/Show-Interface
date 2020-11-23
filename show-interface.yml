@@ -1,0 +1,12 @@
+---
+- name: GATHER INFORMATION FROM ROUTERS
+  hosts: ASA
+  connection: network_cli
+  gather_facts: no
+
+  tasks:
+    - name: COLLECT OUTPUT OF SHOW COMMANDS
+      ios_command:
+        commands:
+          - show run | i hostname
+          - show ip interface brief
